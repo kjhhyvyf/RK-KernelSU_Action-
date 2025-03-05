@@ -11,7 +11,7 @@ on:
       KERNEL_SOURCE_BRANCH:
         description: 'Branch'
         required: true
-        default: 'munch-mi'
+        default: 'lineage-20'
       KERNEL_DEFCONFIG:
         description: 'Defconfig'
         required: true
@@ -154,14 +154,14 @@ jobs:
 
     - name: Upload the kernel image
       if: env.CHECK_KERNEL_FILE_IS_OK == 'true'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ env.KERNEL_FILE }}${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}
         path: android-kernel/out/arch/${{ env.TARGET_ARCH }}/boot/${{ env.KERNEL_FILE }}
 
     - name: Upload DTBO image
       if: env.CHECK_DTBO_IS_OK == 'true'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dtbo-${{ env.DEVICE }}-${{ env.BUILD_TIME }}
         path: android-kernel/out/arch/${{ env.TARGET_ARCH }}/boot/dtbo.img
@@ -192,7 +192,7 @@ jobs:
 
     - name: Upload AnyKernel3
       if: env.CHECK_KERNEL_FILE_IS_OK == 'true'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: AnyKernel3${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}
         path: AnyKernel3/*
