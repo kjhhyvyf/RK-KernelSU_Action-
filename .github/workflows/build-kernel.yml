@@ -123,7 +123,7 @@ jobs:
         make -j$(nproc --all) O=out ARCH=${{ env.TARGET_ARCH }} CC=clang ${{ env.KERNEL_DEFCONFIG }}
 
     - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
+      uses: P3TERX/ssh2actions@v1.2.0
       if: env.SSH == 'true'
 
     - name: Build kernel
