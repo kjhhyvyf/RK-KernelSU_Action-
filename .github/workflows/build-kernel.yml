@@ -7,7 +7,7 @@ on:
       KERNEL_SOURCE:
         description: 'Kernel Source'
         required: true
-        default: 'Rohail33/RealKing-kernel-SM8250'
+        default: 'DD3Boh/android_kernel_xiaomi_sm8250'
       KERNEL_SOURCE_BRANCH:
         description: 'Branch'
         required: true
@@ -15,7 +15,7 @@ on:
       KERNEL_DEFCONFIG:
         description: 'Defconfig'
         required: true
-        default: 'vendor/munch_defconfig'
+        default: 'vendor/lito_defconfig'
       TARGET_ARCH:
         description: 'Target ARCH'
         required: true
