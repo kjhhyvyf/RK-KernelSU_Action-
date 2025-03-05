@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup Configuration
       run: |
@@ -82,7 +82,7 @@ jobs:
         tar -C clang/ -zxf clang.tar.gz
 
     - name: Checkout Kernel Source
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         github-server-url: 'https://github.com'
         repository: ${{ env.KERNEL_SOURCE }}
@@ -167,7 +167,7 @@ jobs:
         path: android-kernel/out/arch/${{ env.TARGET_ARCH }}/boot/dtbo.img
 
     - name: Checkout osm0sis/AnyKernel3
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: osm0sis/AnyKernel3
         path: AnyKernel3
