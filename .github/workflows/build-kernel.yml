@@ -104,7 +104,7 @@ jobs:
         else
             if git apply --check ../KernelSU.patch ; then
                 git apply ../KernelSU.patch
-                curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+                curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
                 echo "UPLOADNAME=-KernelSU" >> $GITHUB_ENV
             else
                 echo "KernelSU Patching failed"
