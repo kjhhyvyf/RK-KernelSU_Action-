@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
 
     - name: Setup Configuration
       run: |
@@ -82,7 +82,7 @@ jobs:
         tar -C clang/ -zxf clang.tar.gz
 
     - name: Checkout Kernel Source
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
         github-server-url: 'https://github.com'
         repository: ${{ env.KERNEL_SOURCE }}
@@ -154,20 +154,20 @@ jobs:
 
     - name: Upload the kernel image
       if: env.CHECK_KERNEL_FILE_IS_OK == 'true'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: ${{ env.KERNEL_FILE }}${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}
         path: android-kernel/out/arch/${{ env.TARGET_ARCH }}/boot/${{ env.KERNEL_FILE }}
 
     - name: Upload DTBO image
       if: env.CHECK_DTBO_IS_OK == 'true'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: dtbo-${{ env.DEVICE }}-${{ env.BUILD_TIME }}
         path: android-kernel/out/arch/${{ env.TARGET_ARCH }}/boot/dtbo.img
 
     - name: Checkout osm0sis/AnyKernel3
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
         repository: osm0sis/AnyKernel3
         path: AnyKernel3
@@ -192,7 +192,7 @@ jobs:
 
     - name: Upload AnyKernel3
       if: env.CHECK_KERNEL_FILE_IS_OK == 'true'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: AnyKernel3${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}
         path: AnyKernel3/*
